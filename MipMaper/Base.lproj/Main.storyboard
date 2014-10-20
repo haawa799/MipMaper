@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MipMaper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +17,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hee-Zo-8i5">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="gcf-FH-G2y"/>
+                                    <constraint firstAttribute="width" secondItem="hee-Zo-8i5" secondAttribute="height" multiplier="1:1" id="owd-Rg-izN"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="rxt-eC-WD3"/>
+                                    <constraint firstAttribute="width" constant="300" id="uBz-tn-O83"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gcf-FH-G2y"/>
+                                        <exclude reference="rxt-eC-WD3"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8J-7l-Fwd">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zuf-yh-D2H"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="0" id="IUB-Tt-yOk"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6U9-gf-IxU"/>
+                                    <barButtonItem style="plain" id="xHO-wh-zyU">
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="8" id="Eg3-k7-gTq">
+                                            <rect key="frame" x="417" y="7" width="170" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="132-WY-frn"/>
+                                            </connections>
+                                        </slider>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c8J-7l-Fwd" secondAttribute="bottom" id="3Gx-Av-VTI"/>
+                            <constraint firstAttribute="centerX" secondItem="hee-Zo-8i5" secondAttribute="centerX" id="Fur-FH-Pef"/>
+                            <constraint firstItem="c8J-7l-Fwd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="GS1-YU-oxG"/>
+                            <constraint firstItem="hee-Zo-8i5" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="WqF-eV-EsM"/>
+                            <constraint firstItem="hee-Zo-8i5" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="1" id="a5R-rM-8bS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c8J-7l-Fwd" secondAttribute="trailing" constant="-16" id="hHh-0O-nNf"/>
+                            <constraint firstAttribute="centerY" secondItem="hee-Zo-8i5" secondAttribute="centerY" id="ySJ-Yn-B4O"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WqF-eV-EsM"/>
+                                <exclude reference="a5R-rM-8bS"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="hee-Zo-8i5" id="oCn-9W-1iq"/>
+                        <outlet property="label" destination="IUB-Tt-yOk" id="rf9-xn-tzp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

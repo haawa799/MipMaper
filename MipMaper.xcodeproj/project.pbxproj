@@ -13,6 +13,10 @@
 		43883F4619F54E1B000FA7E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43883F4519F54E1B000FA7E9 /* Images.xcassets */; };
 		43883F4919F54E1B000FA7E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43883F4719F54E1B000FA7E9 /* LaunchScreen.xib */; };
 		43883F5519F54E1B000FA7E9 /* MipMaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43883F5419F54E1B000FA7E9 /* MipMaperTests.swift */; };
+		43883F6019F54E4A000FA7E9 /* MetalTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43883F5E19F54E4A000FA7E9 /* MetalTexture.swift */; };
+		43883F6119F54E4A000FA7E9 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 43883F5F19F54E4A000FA7E9 /* Shaders.metal */; };
+		43883F6319F54E56000FA7E9 /* goat.png in Resources */ = {isa = PBXBuildFile; fileRef = 43883F6219F54E56000FA7E9 /* goat.png */; };
+		43883F6519F55065000FA7E9 /* TextureMipLevelsFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43883F6419F55065000FA7E9 /* TextureMipLevelsFiller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		43883F4E19F54E1B000FA7E9 /* MipMaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MipMaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43883F5319F54E1B000FA7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43883F5419F54E1B000FA7E9 /* MipMaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MipMaperTests.swift; sourceTree = "<group>"; };
+		43883F5E19F54E4A000FA7E9 /* MetalTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTexture.swift; sourceTree = "<group>"; };
+		43883F5F19F54E4A000FA7E9 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		43883F6219F54E56000FA7E9 /* goat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goat.png; sourceTree = "<group>"; };
+		43883F6419F55065000FA7E9 /* TextureMipLevelsFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureMipLevelsFiller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,10 @@
 		43883F3B19F54E1B000FA7E9 /* MipMaper */ = {
 			isa = PBXGroup;
 			children = (
+				43883F6219F54E56000FA7E9 /* goat.png */,
+				43883F5E19F54E4A000FA7E9 /* MetalTexture.swift */,
+				43883F6419F55065000FA7E9 /* TextureMipLevelsFiller.swift */,
+				43883F5F19F54E4A000FA7E9 /* Shaders.metal */,
 				43883F3E19F54E1B000FA7E9 /* AppDelegate.swift */,
 				43883F4019F54E1B000FA7E9 /* ViewController.swift */,
 				43883F4219F54E1B000FA7E9 /* Main.storyboard */,
@@ -194,6 +206,7 @@
 			files = (
 				43883F4419F54E1B000FA7E9 /* Main.storyboard in Resources */,
 				43883F4919F54E1B000FA7E9 /* LaunchScreen.xib in Resources */,
+				43883F6319F54E56000FA7E9 /* goat.png in Resources */,
 				43883F4619F54E1B000FA7E9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43883F6519F55065000FA7E9 /* TextureMipLevelsFiller.swift in Sources */,
 				43883F4119F54E1B000FA7E9 /* ViewController.swift in Sources */,
+				43883F6019F54E4A000FA7E9 /* MetalTexture.swift in Sources */,
 				43883F3F19F54E1B000FA7E9 /* AppDelegate.swift in Sources */,
+				43883F6119F54E4A000FA7E9 /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
