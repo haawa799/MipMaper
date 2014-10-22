@@ -59,7 +59,7 @@ class MetalTexture: NSObject {
   
   func loadTexture(#device: MTLDevice, flip: Bool){
     
-    var image = UIImage(contentsOfFile: path).CGImage
+    var image = UIImage(contentsOfFile: path)?.CGImage
     var colorSpace = CGColorSpaceCreateDeviceRGB()
     
     width = CGImageGetWidth(image)
@@ -67,7 +67,7 @@ class MetalTexture: NSObject {
     
     var rowBytes = width * 4
     
-    var context = CGBitmapContextCreate(nil, width, height, 8, rowBytes, colorSpace, CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.toRaw()))
+    var context = CGBitmapContextCreate(nil, width, height, 8, rowBytes, colorSpace, CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue))
     var bounds = CGRect(x: 0, y: 0, width: Int(width), height: Int(height))
     CGContextClearRect(context, bounds)
     
@@ -115,10 +115,10 @@ class MetalTexture: NSObject {
     
     var colorSpace = CGColorSpaceCreateDeviceRGB()
     
-    var context = CGBitmapContextCreate(p, mipmapedWidth, mipmapedHeight, 8, rowBytes, colorSpace, CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.toRaw()))
+    var context = CGBitmapContextCreate(p, mipmapedWidth, mipmapedHeight, 8, rowBytes, colorSpace, CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue))
     var imgRef = CGBitmapContextCreateImage(context)
     var image = UIImage(CGImage: imgRef)
-    return image
+    return image!
   }
   
   func image() -> UIImage{

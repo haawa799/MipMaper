@@ -34,11 +34,26 @@ class ViewController: UIViewController {
     self.texture1 = MetalTexture(resourceName: "goat", ext: "png", mipmaped: true)
     self.texture1!.loadTexture(device: device, flip: true)
     
+    
+    generateMipMapLayersUsingSystemFunc(texture1!, device: device, commandQ: commandQ)
+  }
+  
+  func generateMipMapLayersManual(texture: MetalTexture, device: MTLDevice, commandQ: MTLCommandQueue){
     var mipLevelsFiller = TextureMipLevelsFiller.sharedInstance
     mipLevelsFiller.device = device
     mipLevelsFiller.commandQ = commandQ
     
-    mipLevelsFiller.fillMipLevels(texture: texture1!)
+    mipLevelsFiller.fillMipLevels(texture: texture)
+  }
+  
+  func generateMipMapLayersUsingSystemFunc(texture: MetalTexture, device: MTLDevice, commandQ: MTLCommandQueue){
     
+    var commandBuffer = commandQ.commandBuffer()
+    var blitCommandEncoder = commandBuffer.blitCommandEncoder()
+    
+    blitCommandEncoder.generateMipmapsForTexture(texture.texture)
+    blitCommandEncoder.endEncoding()
+    
+    commandBuffer.commit()
   }
 }
